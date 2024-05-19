@@ -1,0 +1,19 @@
+<div class="container">
+
+  <app-league-actions></app-league-actions>
+  <button class="logout-button" (click)="logout()">Logout</button>
+  <p-tabView>
+    <p-tabPanel header="Table">
+      <app-league-table></app-league-table>
+    </p-tabPanel>
+    <p-tabPanel header="Matchweek">
+      <app-league-results></app-league-results>
+    </p-tabPanel>
+    <p-tabPanel header="Fixtures">
+      <app-league-fixtures></app-league-fixtures>
+
+
+    </p-tabPanel>
+
+  </p-tabView>
+</div>

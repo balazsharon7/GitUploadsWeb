@@ -1,0 +1,19 @@
+<p-fieldset [legend]="legend">
+  @for (match of fixture; track $index) {
+  <div
+    class="row flex flex-wrap align-items-center justify-content-between my-3 py-1 border-y-2 border-gray-100 custom-primary-text-color"
+  >
+    <div class="col-12 sm:col-5 m-0 font-medium">{{ match.homeTeam }}</div>
+    <div class="col-12 sm:col-3">
+      <div
+        class="row d-flex flex-row align-items-center justify-content-center"
+      >
+        <span>{{ match.homeTeamScore }}</span>
+        <span class="font-medium">-</span>
+        <span>{{ match.awayTeamScore }}</span>
+      </div>
+    </div>
+    <div class="col-12 sm:col-4 m-0 font-medium">{{ match.awayTeam }}</div>
+  </div>
+  }
+</p-fieldset>

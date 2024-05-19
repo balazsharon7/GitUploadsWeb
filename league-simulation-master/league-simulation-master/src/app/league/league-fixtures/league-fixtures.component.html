@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-start">Fixtures</h1>
+    </div>
+  </div>
+  <div class="row flex flex-wrap align-items-center justify-content-center">
+    @for (fixture of fixtures; track $index) {
+    <div class="col-12 lg:col-4">
+      <app-fixture-card
+        [fixture]="fixture"
+        [legend]="'Matchweek ' + ($index + 1)"
+      ></app-fixture-card>
+    </div>
+    } @empty {
+    <p-fieldset legend="Fixture">
+      <p class="m-0">No fixtures available</p>
+    </p-fieldset>
+    }
+  </div>
+</div>

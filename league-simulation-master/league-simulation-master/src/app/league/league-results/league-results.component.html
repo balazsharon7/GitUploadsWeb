@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-start">Schedule</h1>
+    </div>
+  </div>
+  <div class="row flex flex-wrap align-items-center justify-content-center">
+    <ng-container *ngFor="let week of [lastWeekFixture, currentWeekFixture, nextWeekFixture]; let i = index">
+      <ng-container *ngIf="week.length">
+        <div class="col-12 lg:col-4">
+          <app-fixture-card
+            [fixture]="week"
+            [legend]="i === 0 ? 'Last Matchweek' : i === 1 ? 'Current Matchweek' : 'Next Matchweek'"
+          ></app-fixture-card>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!lastWeekFixture.length && !currentWeekFixture.length && !nextWeekFixture.length">
+      <p-fieldset legend="Fixture">
+        <p class="m-0">No fixtures available</p>
+      </p-fieldset>
+    </ng-container>
+  </div>
+</div>

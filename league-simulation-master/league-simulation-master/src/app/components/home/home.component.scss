@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end; /* Jobbra igazítja a gombot */
+  margin-bottom: 20px; /* Távolság a többi elemtől */
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 25px; /* Lekerekítés */
+  padding: 10px 20px; /* Párnázás */
+  font-size: 16px; /* Betűméret */
+  cursor: pointer; /* Mutató változtatása */
+  transition: background-color 0.3s ease; /* Áttűnés a háttérszín változtatásakor */
+}
+
+.logout-button:hover {
+  background-color: darkred; /* Háttérszín változtatása egérrel való rámutatáskor */
+}

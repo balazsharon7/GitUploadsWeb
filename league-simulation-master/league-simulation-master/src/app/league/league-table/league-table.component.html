@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-start">League Table</h1>
+    </div>
+  </div>
+  <div class="row">
+    <p-table
+      [value]="clubs"
+      styleClass="p-datatable-gridlines"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="w-3rem"></th>
+          <th></th>
+          <th class="w-7rem">Played</th>
+          <th class="w-7rem bg-gray-100">Won</th>
+          <th class="w-7rem">Drawn</th>
+          <th class="w-7rem">Lost</th>
+          <th class="w-7rem">Goals Scored</th>
+          <th class="w-7rem">Goals Conceded</th>
+          <th class="w-7rem">Goal Difference</th>
+          <th class="w-7rem">Points</th>
+          <th class="w-7rem">Championship Odds</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-team>
+        <tr
+          [ngClass]="{
+            'bg-gray-50': team.clubStats.leaguePosition % 2 === 0,
+            'bg-white': team.clubStats.leaguePosition % 2 !== 0,
+          }"
+          class="font-semibold text-xl custom-primary-text-color"
+        >
+          <td>{{ team.clubStats.leaguePosition }}</td>
+          <td>{{ team.clubName }}</td>
+          <td>{{ team.clubStats.totalMatchesPlayed }}</td>
+          <td>
+            <p-badge
+              [value]="team.clubStats.matchOutcome.winCount"
+              size="large"
+              severity="success"
+            ></p-badge>
+          </td>
+          <td>
+            <p-badge
+              [value]="team.clubStats.matchOutcome.drawCount"
+              size="large"
+              severity="info"
+            ></p-badge>
+          </td>
+          <td>
+            <p-badge
+              [value]="team.clubStats.matchOutcome.lossCount"
+              size="large"
+              severity="danger"
+            ></p-badge>
+          </td>
+          <td>{{ team.clubStats.goals.goalsScored }}</td>
+          <td>{{ team.clubStats.goals.goalsConceded }}</td>
+          <td>{{ team.clubStats.goals.goalDifference }}</td>
+          <td>{{ team.clubStats.totalPoint }}</td>
+          <td
+            [ngClass]="{
+              'bg-green-200': team.clubStats.championshipOdds >= 45,
+              'bg-teal-200':
+                team.clubStats.championshipOdds >= 20 &&
+                team.clubStats.championshipOdds < 45,
+              'bg-yellow-200':
+                team.clubStats.championshipOdds > 0 &&
+                team.clubStats.championshipOdds < 20,
+              'bg-red-200': team.clubStats.championshipOdds === 0
+            }"
+          >
+            {{ team.clubStats.championshipOdds }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
